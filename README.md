@@ -8,7 +8,9 @@ Two integrations related functions:
 There are multiple ways of integrating wandb with ray (see [here](test_ray_tune_with_wandb_logging.py)), however I prefer the [class-based method](test_ray_tune_with_wandb_logging.py#84) as it is capable of handling more functionalities and ```tune.run``` will be depricated soon.
 
 ## Commandline
-python test_cifar10_ray_with_wandb.py --device_ids 0 --num_runs 5 --max_num_epochs 10 --gpus_per_trial 0
+(Please set the wandb API key in ```WandbTrainable``` class in the ```test_cifar10_ray_with_wandb.py``` file)
+
+```python test_cifar10_ray_with_wandb.py --device_ids 0 --num_runs 5 --max_num_epochs 10 --gpus_per_trial 0```
 
 ## Ray tune
 
