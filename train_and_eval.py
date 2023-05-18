@@ -31,11 +31,11 @@ Train and eval functions
 def train_cifar(config):
     net = Net(config["l1"], config["l2"])
 
-    device = "cpu"
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if torch.cuda.is_available():
-        device = "cuda:"+os.environ["CUDA_VISIBLE_DEVICES"].split(',')[0]
         if torch.cuda.device_count() > 1:
             net = nn.DataParallel(net)
+
     net.to(device)
 
     criterion = nn.CrossEntropyLoss()
